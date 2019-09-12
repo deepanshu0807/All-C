@@ -106,19 +106,20 @@ int del_from_beg()
 
 int ins_at_mid(int x)
 {
-	struct node *t,*temp,*s;
-	int val;
+	struct node *t,*p;
+	int pos,i;
 	t=(struct node*)malloc(sizeof(struct node));
-	temp=start;
-	printf("\nEnter val after which you want to insert:\n");
-	scanf("%d",&val);
-	while(temp->info!=val)
+	p=start;
+	printf("\nEnter pos where you want to insert:\n");
+	scanf("%d",&pos);
+	for(i=1;i<pos-1 && p!=NULL;i++)
 	{
-		temp=temp->link;
+		p=p->link;
 	}
 	t->info=x;
-	t->link=temp->link;
-	temp->link=t;
+	t->link=p->link;
+	p->link=t;
+	
 }
 int del_from_mid()
 {
