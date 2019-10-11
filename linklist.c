@@ -9,6 +9,16 @@ struct node
 };
 struct node *start=NULL;
 
+void create()
+{	char ch;
+	struct node *p,*t;
+	p=(struct node *)malloc(sizeof(struct node));
+	printf("\nEnter First node: ");
+	scanf("%d",&p->info);
+	start=p;
+	p->link=NULL;
+}
+
 int ins_at_beg(int x)
 {
 	struct node *t;
@@ -146,6 +156,7 @@ int del_from_mid()
 int main()
 {
 	int ch,val;
+	create();
 	while(ch=1)
     {
 
